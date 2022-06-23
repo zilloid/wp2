@@ -9,7 +9,7 @@ $data_barang = $koneksi->query($query_barang);
 if(isset($_POST['simpan'])){
     $id_barang = $_POST['id_barang'];
     $qty_masuk = $_POST['qty_masuk'];
-    $id_operator = 1;
+    $id_operator = $_POST['id_operator'];
     $tgl = date('Y-m-d H:i:s', time());
     // insert into table barang masuk
     $query = "INSERT into tbl_barang_masuk (qty_masuk, id_barang, id_operator, created_at, updated_at) values ('$qty_masuk', '$id_barang', '$id_operator','$tgl','$tgl')";

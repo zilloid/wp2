@@ -2,7 +2,7 @@
 include("conn.php");
 $query = "SELECT * FROM tbl_barang_masuk  
 INNER JOIN tbl_barang ON tbl_barang_masuk.id_barang=tbl_barang.id_barang 
-INNER JOIN tbl_operator  ON tbl_barang_masuk.id_operator=tbl_operator.id_operator AND tbl_barang_masuk.deleted_at 
+AND tbl_barang_masuk.deleted_at 
 IS null ORDER BY tbl_barang_masuk.id_barang_masuk desc";
 $data = $koneksi->query($query);
 
@@ -38,7 +38,7 @@ $data = $koneksi->query($query);
                                 <td><?=$value['kode_barang'];?>-<?=$value['nama_barang'];?></td>
                                 <td><?=$value['satuan'];?></td>
                                 <td><?=$value['qty_masuk'];?></td>
-                                <td><?=$value['nama_operator'];?></td>
+                                <td><?=null;?></td>
                                 <td>
                                     <a href="index.php?hal=hapus_barang_masuk&id=<?=$value['id_barang_masuk'];?>" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> Hapus</a>
                                 </td>

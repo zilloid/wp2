@@ -77,7 +77,7 @@ if(isset($_POST['ubah'])){
                 </div>
                 <div class="form-group">
                     <label for="exampleInputText">pwd</label>
-                    <input type="pwd" class="form-control" min="0" value="<?=$pwd;?>" name="pwd">
+                    <input type="password" class="form-control" min="0" value="<?=$pwd;?>" name="pwd">
                 </div>
             </div>
 
