@@ -1,16 +1,12 @@
 <?php
-$query = "SELECT b.id_barang,
-        b.kode_barang,
-        b.nama_barang,
-        bm.qty_masuk,
-        DATE_FORMAT(bm.created_at,'%d/%m/%Y') as tanggal_masuk,
-        bk.qty_keluar,
+$query = "SELECT b.id_barang,b.kode_barang,b.nama_barang,bm.qty_masuk,
+        DATE_FORMAT(bm.created_at,'%d/%m/%Y') as tanggal_masuk,bk.qty_keluar,
         DATE_FORMAT(bk.created_at,'%d/%m/%Y') as tanggal_keluar
-    FROM tbl_barang as b 
-    LEFT JOIN tbl_barang_masuk AS bm ON bm.id_barang = b.id_barang
-    LEFT JOIN tbl_barang_keluar AS bk ON bk.id_barang = b.id_barang
-    WHERE b.deleted_at IS NULL 
-    ORDER BY b.id_barang DESC";
+        FROM tbl_barang as b 
+        LEFT JOIN tbl_barang_masuk AS bm ON bm.id_barang = b.id_barang
+        LEFT JOIN tbl_barang_keluar AS bk ON bk.id_barang = b.id_barang
+        WHERE b.deleted_at IS NULL 
+        ORDER BY b.id_barang DESC";
 
     $data = $koneksi->query($query);
 ?>
