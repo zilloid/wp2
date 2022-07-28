@@ -1,5 +1,22 @@
 <?php
+
+session_start();
+ 
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+}
+
 include("conn.php");
+
+$queryProfile = "SELECT id_operator,
+        nama_operator,
+        username,
+        email,
+        DATE_FORMAT(created_at,'%d %M %Y') as register_date
+    FROM tbl_operator 
+        WHERE username='".$_SESSION['username']."'";
+    $dataProfile = $koneksi->query($queryProfile);
+    $profile = $dataProfile->fetch_object()
 ?>
 
 
